@@ -1,0 +1,109 @@
+/* Cinematic About Section Styles */
+.about-cinematic-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0;
+  background-image: url('/about-me-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Parallax effect */
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Fallback for mobile devices where background-attachment: fixed is jittery */
+@media (max-width: 1024px) {
+  .about-cinematic-section {
+    background-attachment: scroll;
+  }
+}
+
+/* Semi-transparent blue overlay */
+.about-cinematic-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(49, 84, 156, 0.35); /* Increased transparency to see image clearly */
+  z-index: 2;
+}
+
+.about-cinematic-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.about-cinematic-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+/* Center-left alignment variation for a modern premium feel */
+@media (min-width: 768px) {
+  .about-cinematic-content {
+    text-align: left;
+    margin: 0 0 0 10%;
+    padding: 0;
+  }
+}
+
+.about-cinematic-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-family: 'Outfit', sans-serif;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.about-cinematic-title:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+
+.about-cinematic-desc {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.about-cinematic-desc p {
+  margin-bottom: 1.5rem;
+}
+
+.about-cinematic-desc strong {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.about-cinematic-desc p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-cinematic-section {
+    padding: 80px 0;
+  }
+  
+  .about-cinematic-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-cinematic-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+}

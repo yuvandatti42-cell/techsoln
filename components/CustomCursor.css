@@ -1,0 +1,55 @@
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--secondary); /* Restored to yellow */
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--secondary); /* Restored to yellow */
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  background-color: transparent;
+}
+
+.cursor-dot.hover {
+  width: 12px;
+  height: 12px;
+  background-color: var(--secondary);
+}
+
+.cursor-outline.hover {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(234, 212, 25, 0.2); /* Subtle yellow fill on hover */
+  border-color: transparent;
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  
+  a, button {
+    cursor: none;
+  }
+}
+
+/* Show default cursor on touch devices */
+@media (max-width: 1023px) {
+  .cursor-dot, .cursor-outline {
+    display: none;
+  }
+}
